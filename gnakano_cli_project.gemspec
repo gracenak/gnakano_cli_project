@@ -11,17 +11,17 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{List of open local breweries during the pandemic from the command line.}
   spec.description   = %q{Local Brewery List}
-  spec.homepage      = "https://flatironschool.com"
+  spec.homepage      = "https://flatiron.com"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "http://mygemserver.com"
+    spec.metadata["allowed_push_host"] = "https://github.com"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "https://github.com/gracenak"
-    spec.metadata["changelog_uri"] = "https://github.com/gracenak/changelog.md"
+    spec.metadata["source_code_uri"] = "https://github.com"
+    spec.metadata["changelog_uri"] = "https://github.com"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -38,8 +38,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency 'pry'
-  spec.add_runtime_dependency 'nokogiri'
+  spec.add_development_dependency "pry"
+  spec.add_runtime_dependency "nokogiri"
 
 
 

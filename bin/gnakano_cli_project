@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-puts "Welcome!!!"
+require_relative '../lib/environment.rb'
 
 GnakanoCliProject::Menu.new.start
+
 

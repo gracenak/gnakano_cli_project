@@ -1,15 +1,14 @@
-module GnakanoCliProject
-    class Menu
-        
-
+class GnakanoCliProject::Menu
+    
     def start
         main_menu
+        
     end
 
 
     def main_menu
-        puts "To recieve a list of open local breweries, type 'list'"
         binding.pry
+        puts "To recieve a list of open local breweries, type 'list'"
         puts "To exit, type 'exit'"
 
         input = gets.strip
@@ -22,14 +21,15 @@ module GnakanoCliProject
         end
     end
 
-    def list_breweries
-        puts "Enter Choice Number of the brewery you would like to know more about"
+#     def list_breweries
+#         puts "Enter Choice Number of the brewery you would like to know more about"
 
-        input = gets.strip
-        brewery = Brewery.find(input.to_i)
+#         input = gets.strip
+#         brewery = Brewery.find(input.to_i)
 
-        print_brewery(brewery)
+#         print_brewery(brewery)
 
-        main_menu
-        end
-    end
+#         main_menu
+#         end
+#     end
+end
