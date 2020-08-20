@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "gnakano_cli_project"
+puts "Welcome!!!"
 
 GnakanoCliProject::Menu.new.start
+

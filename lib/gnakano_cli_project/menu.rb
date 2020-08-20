@@ -1,4 +1,5 @@
-module GnakanoCliProject::Menu
+module GnakanoCliProject
+    class Menu
         
 
     def start
@@ -8,6 +9,7 @@ module GnakanoCliProject::Menu
 
     def main_menu
         puts "To recieve a list of open local breweries, type 'list'"
+        binding.pry
         puts "To exit, type 'exit'"
 
         input = gets.strip

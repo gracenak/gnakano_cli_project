@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'net/http'
-require 'pry'
 module GnakanoCliProject
     class Brewery
   
