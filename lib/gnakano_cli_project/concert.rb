@@ -6,6 +6,7 @@ class GnakanoCliProject::Concert
   
   def initialize(name)
     @name = name
+    @date = date
     @concerts = []
     save
     end

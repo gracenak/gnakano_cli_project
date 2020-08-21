@@ -1,4 +1,5 @@
 require 'pry'
+require 'nokogiri'
 
 require_relative "./gnakano_cli_project/version"
 require_relative "./gnakano_cli_project/cli"

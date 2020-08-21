@@ -7,7 +7,7 @@ URL = "https://arizonachambermusic.org/tickets/"
         puts "|  Welcome to Arizona Friends of Chamber Music Concerts!  |"
         puts "+---------------------------------------------------------+"
         # main_menu
-        get_advertised_concerts
+        get_concerts
         list_concerts
         get_user_concert
     end
@@ -63,9 +63,13 @@ URL = "https://arizonachambermusic.org/tickets/"
     # end
     # end
 
-    def get_advertised_concerts
+    def get_concerts
         #to be scraped
-        @concerts = ['Juilliard String Quartet', 'Pacifica Sting Quartet', 'Aragorn String Quartet']
+        @concerts = GnakanoCliProject::Concert.all
+
+        
+        
+        ['Juilliard String Quartet', 'Pacifica Sting Quartet', 'Aragorn String Quartet']
     end
 
     # def get_user_concert
@@ -79,7 +83,7 @@ URL = "https://arizonachambermusic.org/tickets/"
     def list_concerts
         puts "\nHere are a list of concerts:\n"
         @concerts.each_with_index do |concert, index|
-            puts "#{index + 1}. #{concert}"
+            puts "#{index + 1}. #{concert.name}"
         end
     #     main_menu
      end
