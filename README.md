@@ -1,6 +1,6 @@
 # GnakanoCliProject
 
-Find out which local breweries are currently open during the pandemic.
+Find out a list of concerts happening with Arizona Friends of Chamber Music!
 
 ## Installation
 

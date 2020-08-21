@@ -1,6 +1,6 @@
 class GnakanoCliProject::Cli
 
-URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
+URL = "https://arizonachambermusic.org/tickets/"
     
     def start
         puts "+---------------------------------------------------------+"
@@ -14,7 +14,7 @@ URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
         puts ""
         puts "To see a list of concerts, type 'list'"
         input = gets.strip
-        list_concerts(input)
+        list_concerts
 
         puts ""
         puts "To find out more information about a specific concert, enter the number"
@@ -48,6 +48,9 @@ URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
 
     def list_concerts
         puts "Awesome! Here are a list of concerts"
+        @concerts.each_with_index(1) do |concert, index|
+            puts "#{index}. #{concert.name}"
+        end
         main_menu
     end
 
@@ -60,7 +63,7 @@ URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
         puts "Contact:      #{concert.contact}"
         puts "Hours:      #{brewery.hours}"
         puts "==============About Us=============="
-        puts "Details:    #{brewery.details}" 
+        puts "Details:    #{concert.details}" 
         puts ""
         main_menu
     end

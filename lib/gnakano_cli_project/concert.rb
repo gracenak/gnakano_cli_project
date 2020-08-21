@@ -1,22 +1,23 @@
-module GnakanoCliProject
-    class Brewery
+class GnakanoCliProject::Concert
   
-  attr_accessor :name, :location, :instagram, :details, :hours, :website_url, :contact
+  attr_accessor :name, :date, :description, :event_time, :program, :bio, :ticket_info
   
-  @@all = ["a", "b", "c"]
+  @@all = []
   
-  def initialize(name, location, url)
+  def initialize(name, location)
     @name = name
     @location = location 
-    @url = url
-    @@all << self
+    @concerts = []
+    save
     end
     
-   
-
-    def self.all
-      @@all
-    end
+  def save
+     @@all << self
+  end
+  
+  def self.all
+    @@all
+  end
 
     def self.load_data
         Brewery::Scraper.new.load
@@ -28,11 +29,9 @@ module GnakanoCliProject
 
     end
 
-    def self.find(name)
-        brewery = Brewery.new
-        brewery.name = ""
-        brewery.location = ""
-    end
+  def self.find_by_concert(name)
+    @@all.find {|concert|concert.name == name}
+  end
     
 #     def self.new_from_index_page(brewery)
 #         self.new(
@@ -49,13 +48,8 @@ module GnakanoCliProject
 #     end
 #   end
     
-    
-  def self.all
-    @@all
-  end
   
   def self.find 
 
   end
-end
 end
