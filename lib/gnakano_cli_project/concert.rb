@@ -4,9 +4,8 @@ class GnakanoCliProject::Concert
   
   @@all = []
   
-  def initialize(name, location)
+  def initialize(name)
     @name = name
-    @location = location 
     @concerts = []
     save
     end
@@ -14,7 +13,7 @@ class GnakanoCliProject::Concert
   def save
      @@all << self
   end
-  
+
   def self.all
     @@all
   end

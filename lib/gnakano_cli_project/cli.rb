@@ -6,27 +6,34 @@ URL = "https://arizonachambermusic.org/tickets/"
         puts "+---------------------------------------------------------+"
         puts "|  Welcome to Arizona Friends of Chamber Music Concerts!  |"
         puts "+---------------------------------------------------------+"
-        main_menu
+        # main_menu
         get_advertised_concerts
-        
         list_concerts
-        # get_user_concert
+        get_user_concert
     end
 
-    def main_menu
-        puts ""
-        puts "To see a list of concerts, type 'list'"
-        input = gets.strip
+    # def main_menu
+    #     puts ""
+    #     puts "To see a list of concerts, type 'list'"
+    #     input = gets.strip
 
-        puts ""
-        puts "To exit, type 'exit'"
-        input = gets.strip
+    #     case input
+    #     when 'list'
+    #         puts get_advertised_concerts
 
-        puts ""
-        puts get_advertised_concerts
-        puts list_concerts
-        input = gets.strip
-    end
+        # puts ""
+        # puts get_advertised_concerts
+        # puts list_concerts
+        # input = gets.strip
+
+         
+
+    #     puts ""
+    #     puts "To exit, type 'exit'"
+    #     input = gets.strip
+
+    #     end
+    # end
     
         # puts ""
         # puts "To find out more information about a specific concert, enter the number"
@@ -70,14 +77,29 @@ URL = "https://arizonachambermusic.org/tickets/"
 
 
     def list_concerts
-        puts "Awesome! Here are a list of concerts"
+        puts "\nHere are a list of concerts:\n"
         @concerts.each_with_index do |concert, index|
-            puts "#{index + 1}. #{concert.name}"
+            puts "#{index + 1}. #{concert}"
         end
     #     main_menu
      end
 
-    # def print_concerts(concert)
+     def get_user_concert
+        puts "\nWhich concert would you like to know more about? Enter a number.\n"
+        chosen_concert = gets.strip.to_i
+        # print_concerts(chosen_concert) if valid_input(chosen_concert, @concerts)
+            
+         end
+
+        end
+    #  end
+
+    def valid_input(input, data)
+        input.to_i <= data.length && input.to_i > 0
+    end
+
+    # def print_concerts(chosen_concert)
+    #     concert = @concerts[chosen_concert]
     #     puts ""
     #     puts "==========#{concert.name}=========="
     #     puts ""
@@ -88,7 +110,7 @@ URL = "https://arizonachambermusic.org/tickets/"
     #     puts "==============About Us=============="
     #     puts "Details:    #{concert.details}" 
     #     puts ""
-    #     main_menu
+    
     # end
 
     # puts ""
@@ -105,4 +127,4 @@ URL = "https://arizonachambermusic.org/tickets/"
 #         print_brewery(brewery)
 
 #         main_menu
-end
+# end
