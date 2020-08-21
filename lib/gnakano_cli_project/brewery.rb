@@ -1,3 +1,4 @@
+require 'pry'
 module GnakanoCliProject
     class Brewery
   
@@ -5,11 +6,13 @@ module GnakanoCliProject
   
   @@all = []
   
-#   def initialize(brewery_hash)
-#     brewery_hash.each do |k,v|
-#       self.send ("#{k}=", v)
-#       @@all << save
-#     end
+  def initialize(name, location, url)
+    binding.pry
+    @name = name
+    @location = location 
+    @url = url
+    @@all << self
+    end
     
     #name: brewery.css("span").text
     #location: brewery.css("h5").text
@@ -18,6 +21,10 @@ module GnakanoCliProject
     #hours: 
     #website_url:
     #contact: 
+
+    def self.all
+      @@all
+    end
 
     def self.load_data
         Brewery::Scraper.new.load
