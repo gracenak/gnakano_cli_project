@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yuiko Grace Nakano"]
   spec.email         = ["gracenak@gmail.com"]
 
-  spec.summary       = %q{List of open local breweries during the pandemic from the command line.}
-  spec.description   = %q{Local Brewery List}
+  spec.summary       = %q{List of Arizona Friends of Chamber Music.}
+  spec.description   = %q{Concert Events}
   spec.homepage      = "https://flatiron.com"
   spec.license       = "MIT"
 
