@@ -1,26 +1,18 @@
-require 'pry'
 module GnakanoCliProject
     class Brewery
   
   attr_accessor :name, :location, :instagram, :details, :hours, :website_url, :contact
   
-  @@all = []
+  @@all = ["a", "b", "c"]
   
   def initialize(name, location, url)
-    binding.pry
     @name = name
     @location = location 
     @url = url
     @@all << self
     end
     
-    #name: brewery.css("span").text
-    #location: brewery.css("h5").text
-    #instagram: brewery.css(".ViewProfileButton").a("href").value
-    #details: brewery.css("p").text
-    #hours: 
-    #website_url:
-    #contact: 
+   
 
     def self.all
       @@all

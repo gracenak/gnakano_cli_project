@@ -2,6 +2,6 @@
 
 require_relative '../lib/environment.rb'
 
-GnakanoCliProject::Menu.new.start
+GnakanoCliProject::Cli.new.start
 
 

@@ -3,31 +3,31 @@ class GnakanoCliProject::Cli
 URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
     
     def start
-        puts "+----------------------------------------------------------+"
-        puts "|   Welcome to a list of open local breweries in Tucson!   |"
-        puts "+----------------------------------------------------------+"
+        puts "+---------------------------------------------------------+"
+        puts "|  Welcome to Arizona Friends of Chamber Music Concerts!  |"
+        puts "+---------------------------------------------------------+"
         main_menu
-        list_breweries
+        list_concerts
     end
 
     def main_menu
         puts ""
-        puts "To see a list of open local breweries, type 'list'"
+        puts "To see a list of concerts, type 'list'"
         input = gets.strip
-        list_breweries(input)
+        list_concerts(input)
 
         puts ""
-        puts "To find out more information about a specific brewery, enter the number"
+        puts "To find out more information about a specific concert, enter the number"
         input = gets.strip.to_i
-        print_brewery(brewery)
+        print_concerts(concert)
 
-        puts "Would you like to check out another brewery, type 'y' or 'n'?"
+        puts "Would you like to check out another concert, type 'y' or 'n'?"
         input = gets.strip.downcase
         if input == "y"
-            list_breweries(input)
+            list_concerts(input)
         elsif input == "n"
             puts ""
-            puts "Thanks for checking out our list of open local breweries!"
+            puts "Thanks for checking out our list of concerts!"
 
 
         puts "To exit, type 'exit'"
@@ -37,35 +37,32 @@ URL = "https://tucsonfoodie.com/2020/05/21/local-brews-to-go/"
         case input
 
         when 'list'
-        self.list_breweries
+        self.list_concerts
 
         when 'exit'
-        puts "Thanks for supporting our local breweries! Goodbye!"
-            
-        else
-            "Please type in a valid request"
-        end
+        puts "Thanks for checking out our list of concerts! Goodbye!"
         end
     end
-
-    def list_breweries(brewery)
-        Brewery.all.sort {|a,b| a.name <=> b.name}.each_with_index do |brewery|
-            puts "#{i + 1}. #{brewery.name}"
-
-        end
     end
 
-    def print_brewery(brewery)
+
+    def list_concerts
+        puts "Awesome! Here are a list of concerts"
+        main_menu
+    end
+
+    def print_concerts(concert)
         puts ""
-        puts "==========#{brewery.name}=========="
+        puts "==========#{concert.name}=========="
         puts ""
-        puts "Location:   #{brewery.location}"
-        puts "Instagram:  #{brewery.instagram}"
-        puts "Contact:    #{brewery.contact}"
+        puts "Date:         #{concert.date}"
+        puts "Description:  #{concert.description}"
+        puts "Contact:      #{concert.contact}"
         puts "Hours:      #{brewery.hours}"
         puts "==============About Us=============="
         puts "Details:    #{brewery.details}" 
         puts ""
+        main_menu
     end
 
     # puts ""
