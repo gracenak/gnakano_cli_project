@@ -4,7 +4,7 @@ URL = "https://arizonachambermusic.org/tickets/"
     
     def start
         puts "+-----------------------------------------------------------+"
-        puts "|  Welcome to Arizona Friends of Chamber Music Concerts!🎻   |"
+        puts "|  Welcome to Arizona Friends of Chamber Music Concerts!🎻  |"
         puts "+-----------------------------------------------------------+"
         # main_menu
         get_concerts
@@ -42,23 +42,17 @@ URL = "https://arizonachambermusic.org/tickets/"
 
     def print_concert(chosen_concert)
       concert = @concerts[chosen_concert]
-      puts "#{concert.name}"
-      puts "#{concert.date}"
-      puts "#{concert.description}"
-  end
-
         
-        # puts ""
-        # puts "==========#{concert.name}=========="
-        # puts ""
-        # puts "Date:         #{concert.date}"
-        # # puts "Description:  #{concert.description}"
+        puts ""
+        puts "==========#{concert.name}=========="
+        puts "Date:           #{concert.date}"
+        puts "\nDescription:    #{concert.description}\n"
         # puts "Contact:      #{concert.contact}"
         # puts "Hours:      #{brewery.hours}"
         # puts "==============About Us=============="
         # puts "Details:    #{concert.details}" 
         # puts ""
-    # end
+     end
 
     # puts ""
     #     puts "To find out more information about a specific brewery, enter the number"
