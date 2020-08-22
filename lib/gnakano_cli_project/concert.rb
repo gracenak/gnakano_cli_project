@@ -4,10 +4,9 @@ class GnakanoCliProject::Concert
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, date)
     @name = name
-    @date = "July 4"
-    @description = "This is going to be awesome"
+    @date = date
     @concerts = []
     save
   end

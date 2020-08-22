@@ -29,6 +29,7 @@ URL = "https://arizonachambermusic.org/tickets/"
       puts "\nWhich concert would you like to know more about? Enter a number.\n"
       chosen_concert = gets.strip.to_i
       print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
+
       end
     end
 
@@ -46,7 +47,8 @@ URL = "https://arizonachambermusic.org/tickets/"
         puts ""
         puts "==========#{concert.name}=========="
         puts "Date:           #{concert.date}"
-        puts "\nDescription:    #{concert.description}\n"
+        # puts "Time:        #{concert.time}"
+        # puts "\nBio:    #{concert.bio}\n"
         # puts "Contact:      #{concert.contact}"
         # puts "Hours:      #{brewery.hours}"
         # puts "==============About Us=============="
