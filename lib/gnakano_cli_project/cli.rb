@@ -12,67 +12,9 @@ URL = "https://arizonachambermusic.org/tickets/"
         get_user_concert
     end
 
-    # def main_menu
-    #     puts ""
-    #     puts "To see a list of concerts, type 'list'"
-    #     input = gets.strip
-
-    #     case input
-    #     when 'list'
-    #         puts get_advertised_concerts
-
-        # puts ""
-        # puts get_advertised_concerts
-        # puts list_concerts
-        # input = gets.strip
-
-         
-
-    #     puts ""
-    #     puts "To exit, type 'exit'"
-    #     input = gets.strip
-
-    #     end
-    # end
-    
-        # puts ""
-        # puts "To find out more information about a specific concert, enter the number"
-        # input = gets.strip.to_i
-        # puts 
-
-    #     # puts "Would you like to check out another concert, type 'y' or 'n'?"
-    #     # input = gets.strip.downcase
-    #     # if input == "y"
-    #     #     list_concerts(input)
-    #     # elsif input == "n"
-    #     #     puts ""
-    #     #     puts "Thanks for checking out our list of concerts!"
-
-    #     # else
-    #     puts "To exit, type 'exit'"
-    #     input = gets.strip
-
-    #     case input
-
-    #     when 'list'
-    #     self.list_concerts
-
-    #     else
-    #     puts "Thanks for checking out our list of concerts! Goodbye!"
-    #     end
-    # end
-    # end
-
     def get_concerts
         @concerts = GnakanoCliProject::Concert.all
     end
-
-    # def get_user_concert
-    #     #list concerts
-    #     @concerts.each_with_index(1) do |concert, index| 
-    #         puts "#{index}. #{concert}"
-    #     end  
-    # end
 
 
     def list_concerts
@@ -81,37 +23,42 @@ URL = "https://arizonachambermusic.org/tickets/"
         @concerts.each_with_index do |concert, index|
             puts "#{index + 1}. #{concert.name}"
         end
-    #     main_menu
      end
 
-     def get_user_concert
-        puts "\nWhich concert would you like to know more about? Enter a number.\n"
-        chosen_concert = gets.strip.to_i
-        print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
-            
-         end
-
-        end
-    #  end
+    def get_user_concert
+      puts "\nWhich concert would you like to know more about? Enter a number.\n"
+      chosen_concert = gets.strip.to_i
+      print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
+      end
+    end
 
     def valid_input(input, data)
         input.to_i <= data.length && input.to_i > 0
     end
+    
+    # def add_attributes_to_concerts(chosen_concert)
+    #   Concert.all.each do |concert|
+    #     attributes = Scraper.
 
     def print_concert(chosen_concert)
-        concert = @concerts[chosen_concert]
-        puts ""
-        puts "==========#{concert.name}=========="
-        puts ""
+      concert = @concerts[chosen_concert]
+      puts "#{concert.name}"
+      puts "#{concert.date}"
+      puts "#{concert.description}"
+  end
+
+        
+        # puts ""
+        # puts "==========#{concert.name}=========="
+        # puts ""
         # puts "Date:         #{concert.date}"
-        # puts "Description:  #{concert.description}"
+        # # puts "Description:  #{concert.description}"
         # puts "Contact:      #{concert.contact}"
         # puts "Hours:      #{brewery.hours}"
         # puts "==============About Us=============="
         # puts "Details:    #{concert.details}" 
         # puts ""
-    
-    end
+    # end
 
     # puts ""
     #     puts "To find out more information about a specific brewery, enter the number"

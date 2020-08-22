@@ -7,10 +7,12 @@ class GnakanoCliProject::Concert
   def initialize(name)
     @name = name
     @date = date
+    @description = description
     @concerts = []
     save
-    end
+  end
     
+  
   def save
      @@all << self
   end
@@ -19,19 +21,34 @@ class GnakanoCliProject::Concert
     GnakanoCliProject::Scraper.load if @@all.empty?
     @@all
   end
+  
+  def get_concerts
+    GnakanoCliProject::Scraper.scrape_concerts(self) if @concerts.empty?
+  end
 
-    def self.load_data
-        Brewery::Scraper.new.load
-        #I've opened the webpage
-        #parsed it with Nokogiri for each brewery
-        #I have instantiated an instance of a brewery with the corresponding data
-        #when I instantiate a brewery, it must remember all the breweries
-        #
-
+  
+  def self.create(concert_array)
+    concert_array.each do |concert|
+      Concert.new(concert)
     end
+  end
+  
+  #   GnakanoCliProject::Scraper.scrape_concerts_by_index(self) if @concerts.empty?
+  #   @concerts
+  #   end
+  # end
 
   def self.find_by_concert(name)
-    @@all.find {|concert|concert.name == name}
+   # @@all.find {|concert|concert.name == name}
+   concert = Concert.new
+    @name = "Juilliard"
+    @date = "July 4"
+    @description = "This is going to be awesome"
+   concert
+  end
+  
+  def get_concert_details
+    GnakanoCliProject::Scraper.scrape_concerts_by_index(self) if @description.empty? 
   end
     
 #     def self.new_from_index_page(brewery)
@@ -39,18 +56,6 @@ class GnakanoCliProject::Concert
 #           brewery.css("h2").text
 #     students_array.each do |student|
 #       Student.new(student)
-#     end
-#   end
+   end
+ 
 
-#   def add_student_attributes(attributes_hash)
-#     # binding.pry
-#     attributes_hash.each do |k,v|
-#       self.send("#{k}=", v)
-#     end
-#   end
-    
-  
-  def self.find 
-
-  end
-end
