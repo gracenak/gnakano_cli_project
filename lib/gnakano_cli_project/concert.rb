@@ -16,6 +16,7 @@ class GnakanoCliProject::Concert
   end
 
   def self.all
+    GnakanoCliProject::Scraper.load if @@all.empty?
     @@all
   end
 

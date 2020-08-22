@@ -2,12 +2,16 @@ class GnakanoCliProject::Scraper
 
   URL = "https://arizonachambermusic.org/tickets/"
 
-  def load
-    index = Nokogiri::HTML(open('https://arizonachambermusic.org/tickets/'))
-    binding.pry
+  def self.load
+    doc = Nokogiri::HTML(open('https://arizonachambermusic.org/tickets/'))
+    concerts = doc.css("h1.event-title")
+    concerts.each do |concert|
+      name = concert.text
+      GnakanoCliProject::Concert.new(name)
     #I've opened the webpage
     #parsed it with Nokogiri for each concert
     #I have instantiated an instance of a concert with the corresponding data
+    end
   end
 end
       
