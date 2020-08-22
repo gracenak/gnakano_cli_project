@@ -3,9 +3,9 @@ class GnakanoCliProject::Cli
 URL = "https://arizonachambermusic.org/tickets/"
     
     def start
-        puts "+---------------------------------------------------------+"
-        puts "|  Welcome to Arizona Friends of Chamber Music Concerts!  |"
-        puts "+---------------------------------------------------------+"
+        puts "+-----------------------------------------------------------+"
+        puts "|  Welcome to Arizona Friends of Chamber Music Concerts!🎻   |"
+        puts "+-----------------------------------------------------------+"
         # main_menu
         get_concerts
         list_concerts
@@ -87,7 +87,7 @@ URL = "https://arizonachambermusic.org/tickets/"
      def get_user_concert
         puts "\nWhich concert would you like to know more about? Enter a number.\n"
         chosen_concert = gets.strip.to_i
-        # print_concerts(chosen_concert) if valid_input(chosen_concert, @concerts)
+        print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
             
          end
 
@@ -98,20 +98,20 @@ URL = "https://arizonachambermusic.org/tickets/"
         input.to_i <= data.length && input.to_i > 0
     end
 
-    # def print_concerts(chosen_concert)
-    #     concert = @concerts[chosen_concert]
-    #     puts ""
-    #     puts "==========#{concert.name}=========="
-    #     puts ""
-    #     puts "Date:         #{concert.date}"
-    #     puts "Description:  #{concert.description}"
-    #     puts "Contact:      #{concert.contact}"
-    #     puts "Hours:      #{brewery.hours}"
-    #     puts "==============About Us=============="
-    #     puts "Details:    #{concert.details}" 
-    #     puts ""
+    def print_concert(chosen_concert)
+        concert = @concerts[chosen_concert]
+        puts ""
+        puts "==========#{concert.name}=========="
+        puts ""
+        # puts "Date:         #{concert.date}"
+        # puts "Description:  #{concert.description}"
+        # puts "Contact:      #{concert.contact}"
+        # puts "Hours:      #{brewery.hours}"
+        # puts "==============About Us=============="
+        # puts "Details:    #{concert.details}" 
+        # puts ""
     
-    # end
+    end
 
     # puts ""
     #     puts "To find out more information about a specific brewery, enter the number"
