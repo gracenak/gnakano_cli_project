@@ -26,7 +26,7 @@ URL = "https://arizonachambermusic.org/tickets/"
      end
 
     def get_user_concert
-      puts "\nWhich concert would you like to know more about? Enter a number.\n"
+      puts "\nWhich concert would you like to know more about? Enter a number 1-13.\n"
       chosen_concert = gets.strip.to_i
       print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
 
@@ -36,10 +36,7 @@ URL = "https://arizonachambermusic.org/tickets/"
     def valid_input(input, data)
         input.to_i <= data.length && input.to_i > 0
     end
-    
-    # def add_attributes_to_concerts(chosen_concert)
-    #   Concert.all.each do |concert|
-    #     attributes = Scraper.
+
 
     def print_concert(chosen_concert)
       concert = @concerts[chosen_concert]
@@ -47,7 +44,7 @@ URL = "https://arizonachambermusic.org/tickets/"
         puts ""
         puts "==========#{concert.name}=========="
         puts "Date:           #{concert.date}"
-        # puts "Time:        #{concert.time}"
+        puts "Time:        #{concert.event_time}"
         # puts "\nBio:    #{concert.bio}\n"
         # puts "Contact:      #{concert.contact}"
         # puts "Hours:      #{brewery.hours}"
@@ -56,18 +53,4 @@ URL = "https://arizonachambermusic.org/tickets/"
         # puts ""
      end
 
-    # puts ""
-    #     puts "To find out more information about a specific brewery, enter the number"
-    #     input = gets.strip.to_i
-    #     puts "Would you like to check out another brewery"
-
-
-#         puts "Enter Choice Number of the brewery you would like to know more about"
-
-#         input = gets.strip
-#         brewery = Brewery.find(input.to_i)
-
-#         print_brewery(brewery)
-
-#         main_menu
-# end
+ 

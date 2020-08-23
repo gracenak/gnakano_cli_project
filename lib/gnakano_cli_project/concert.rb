@@ -1,12 +1,13 @@
 class GnakanoCliProject::Concert
   
-  attr_accessor :name, :date, :description, :event_time, :program, :bio, :ticket_info
+  attr_accessor :name, :date, :url, :description, :event_time, :program, :bio, :ticket_info
   
   @@all = []
   
   def initialize(name, date)
     @name = name
     @date = date
+    @url = url
     @concerts = []
     save
   end
@@ -48,6 +49,10 @@ class GnakanoCliProject::Concert
   
   def get_concert_details
     GnakanoCliProject::Scraper.scrape_concerts_by_index(self) if @description.empty? 
+  end
+
+  def event_time
+    @event_time ||= concert.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
   end
     
 #     def self.new_from_index_page(brewery)
