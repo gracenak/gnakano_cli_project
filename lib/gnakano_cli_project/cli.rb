@@ -41,7 +41,7 @@ class GnakanoCliProject::Cli
 
         def add_details_to_concerts
             @concerts.each do |concert|
-                details = GnakanoCliProject::Scraper.scrape_concert_page(URL + concert.url)
+                details = GnakanoCliProject::Scraper.scrape_concert_page(concert.url)
                 concert.add_concert_details(details)
             end
         end
@@ -49,19 +49,18 @@ class GnakanoCliProject::Cli
     
     
         def print_concert(chosen_concert)
-          concert = @concerts[chosen_concert]
+          concert = @concerts[chosen_concert -1]
             
             puts ""
             puts "==========#{concert.name}=========="
             puts "Date:           #{concert.date}"
+            puts "Link:          #{concert.url}"
             puts "Time:        #{concert.event_time}"
-            # puts "\nBio:    #{concert.bio}\n"
-            # puts "Contact:      #{concert.contact}"
-            # puts "Hours:      #{brewery.hours}"
-            # puts "==============About Us=============="
-            # puts "Details:    #{concert.details}" 
-            # puts ""
+            puts "Program:    #{concert.program}"
+            puts "Bio:      #{concert.bio}"
+            puts "Tickets:      #{concert.ticket_info}"
          end
+
     
 
  

@@ -33,7 +33,6 @@ class GnakanoCliProject::Scraper
       
       scraped_concert
 
-      binding.pry
        
       # scraped_concert[:event_time] = info.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
     #   scraped_concert[:program] = info.css("ul.list-unstyled.list-pieces").text.strip
