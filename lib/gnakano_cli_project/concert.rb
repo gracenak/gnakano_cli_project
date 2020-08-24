@@ -4,7 +4,7 @@ class GnakanoCliProject::Concert
   
   @@all = []
   
-  def initialize(name, date)
+  def initialize(name, date, url)
     @name = name
     @date = date
     @url = url
@@ -22,39 +22,21 @@ class GnakanoCliProject::Concert
     @@all
   end
   
-  def get_concerts
-    GnakanoCliProject::Scraper.scrape_concerts(self) if @concerts.empty?
-  end
-
-  
-  def self.create(concert_array)
-    concert_array.each do |concert|
-      Concert.new(concert)
-    end
-  end
-  
-  #   GnakanoCliProject::Scraper.scrape_concerts_by_index(self) if @concerts.empty?
-  #   @concerts
-  #   end
+  # def get_concerts
+  #   GnakanoCliProject::Scraper.scrape_concerts(self) if @concerts.empty?
   # end
 
   def self.find_by_concert(name)
-   # @@all.find {|concert|concert.name == name}
-   concert = Concert.new
-    @name = "Juilliard"
-    @date = "July 4"
-    @description = "This is going to be awesome"
-   concert
-  end
-  
-  def get_concert_details
-    GnakanoCliProject::Scraper.scrape_concerts_by_index(self) if @description.empty? 
+    @@all.find {|concert|concert.name == name}
   end
 
-  def event_time
-    @event_time ||= concert.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
+  
+  def add_concert_details(concert_hash)
+    concert_hash.each do |k, v|
+      self.send("#{k}=", v)
+    end
   end
-    
+
 #     def self.new_from_index_page(brewery)
 #         self.new(
 #           brewery.css("h2").text
@@ -62,4 +44,3 @@ class GnakanoCliProject::Concert
 #       Student.new(student)
    end
  
-
