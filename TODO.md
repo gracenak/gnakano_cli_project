@@ -72,3 +72,7 @@ Environment file:
 
 Bin:
 > 
+
+  def self.find_by_concert(name)
+    @@all.find {|concert|concert.name == name}
+  end
