@@ -1,6 +1,6 @@
 class GnakanoCliProject::Concert
   
-  attr_accessor :name, :date, :info, :url, :description, :event_time, :program, :bio, :ticket_info
+  attr_accessor :name, :date, :info, :url, :event_time, :program, :bio 
   
   @@all = []
   
@@ -12,8 +12,6 @@ class GnakanoCliProject::Concert
     @concerts = []
     save
   end
-
-  # binding.pry
   
   def save
      @@all << self
@@ -22,12 +20,5 @@ class GnakanoCliProject::Concert
   def self.all
     GnakanoCliProject::Scraper.load if @@all.empty?
     @@all
-  end
-  
-  def add_concert_details(concert_hash)
-    concert_hash.each do |k, v|
-      self.send("#{k}=", v)
-    end
-    # binding.pry
   end
 end
