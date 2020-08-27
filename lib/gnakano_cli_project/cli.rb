@@ -44,9 +44,9 @@ class GnakanoCliProject::Cli
     
         puts ""
         puts "============#{concert.name}============"
-        puts "Date:"          
+        puts "Date:"       
         puts "#{concert.date}"
-        puts "\nTeaser Info:\n"   
+        puts "\nTeaser Info:\n"  
         puts "#{concert.info}"
         puts ""
         puts "-------- For More Info: --------"

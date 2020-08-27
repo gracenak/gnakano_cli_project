@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yuiko Grace Nakano"]
   spec.email         = ["gracenak@gmail.com"]
 
-  spec.summary       = %q{List of Arizona Friends of Chamber Music.}
-  spec.description   = %q{Concert Events}
+  spec.summary       = %q{Lists all the concerts at Arizona Friends of Chamber Music.}
+  spec.description   = %q{Allows the user to find more information about a concert they are interested in.}
   spec.homepage      = "https://flatiron.com"
   spec.license       = "MIT"
 
@@ -40,7 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
   spec.add_runtime_dependency "nokogiri"
-
-
-
+ 
 end
