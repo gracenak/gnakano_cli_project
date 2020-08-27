@@ -1,6 +1,4 @@
 class GnakanoCliProject::Cli
-
-    URL = "https://arizonachambermusic.org/tickets/"
         
         def start
             puts "+-----------------------------------------------------------+"
@@ -9,35 +7,9 @@ class GnakanoCliProject::Cli
             get_concerts
             list_concerts
             get_user_concert
-            # add_details_to_concerts
+            add_details_to_concerts
             main_menu
         end
-
-        def main_menu
-            puts input = ""
-            while input != "N"
-            
-            puts "\nWould you like check out another concert? Enter Y or N."
-                input = gets.strip.upcase
-            until input == "Y" || input == "N"
-                puts "Enter Y or N."
-                input = gets.strip.upcase
-            end
-            if input == "Y"
-                list_concerts
-                get_user_concert 
-            elsif input == "N"
-                puts "----------------------------------------------------"
-                puts " Thanks for checking us out. Cheers till next time! "
-                puts "----------------------------------------------------"
-            else
-                puts "Invalid input. Enter Y or N"
-                list_concerts
-            end
-        end
-
-        end
-
 
     
         def get_concerts
@@ -63,15 +35,16 @@ class GnakanoCliProject::Cli
     
         def valid_input(input, data)
             input.to_i <= data.length && input.to_i > 0
-        end
+        end  
 
 
         def add_details_to_concerts
             @concerts.each do |concert|
-                details = GnakanoCliProject::Scraper.scrape_concert_page(artist)
+                details = GnakanoCliProject::Scraper.scrape_concert_page(self)
                 concert.add_concert_details(details)
             end
         end
+       
     
         def print_concert(chosen_concert)
           concert = @concerts[chosen_concert -1]
@@ -81,11 +54,37 @@ class GnakanoCliProject::Cli
             puts "Date:           #{concert.date}"
             puts "Info:        #{concert.info}"
             puts "Link:          #{concert.url}"
-            # puts "Time:        #{concert.event_time}"
-            # puts "Program:    #{concert.program}"
+            puts "Time:        #{concert.event_time}"
+            puts "Program:    #{concert.program}"
             # puts "Bio:      #{concert.bio}"
             # puts "Tickets:      #{concert.ticket_info}"
          end
+
+         def main_menu
+            puts input = ""
+            while input != "N"
+            
+            puts "\nWould you like check out another concert? Enter Y or N."
+                input = gets.strip.upcase
+            until input == "Y" || input == "N"
+                puts "Enter Y or N."
+                input = gets.strip.upcase
+            end
+            if input == "Y"
+                list_concerts
+                get_user_concert 
+            elsif input == "N"
+                puts "-------------------------------------"
+                puts " Thanks for checking us out. Cheers! "
+                puts "-------------------------------------"
+            else
+                puts "Invalid input. Enter Y or N"
+                list_concerts
+            end
+        end
+
+        end
+
 
          
         

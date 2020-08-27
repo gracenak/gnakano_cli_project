@@ -1,6 +1,6 @@
 class GnakanoCliProject::Scraper
 
-  URL = "https://arizonachambermusic.org/tickets/"
+attr_accessor :url
 
   def self.load
     doc = Nokogiri::HTML(open('https://arizonachambermusic.org/tickets/'))
@@ -19,23 +19,38 @@ class GnakanoCliProject::Scraper
     #I've opened the webpage
     #parsed it with Nokogiri for each concert
      #I have instantiated an instance of a concert with the corresponding data
- 
 
-    def self.scrape_concert_page(artist)
-      doc = Nokogiri::HTML(open(url))
-      url = "https://arizonachambermusic.org/events/#{artist.url}"
-      scraped_concert = {}
-      artists = Nokogiri::HTML(open(url))
-      artists.each do |artist|
-      scraped_concert[:event_time] = artist.css("h2.event-subtitle").text
-      # scraped_concert[:event_time] = info.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
-      scraped_concert[:program] = artist.css("ul.list-unstyled.list-pieces").text.strip
-      scraped_concert[:ticket_info] = artist.css("div.panel.text-sans").text
-  
-      scraped_concert
+    #  def page
+    #     @page ||= Nokogiri::HTML(open("https://arizonachambermusic.org/events/#{name}"))
+    #  end
+
+    #  def event_time
+    #   @event_time ||= page.css("h2.event-subtitle").text
+    #  end
+
+  #   @concerts.each_with_index do |concert, index|
+  #     puts "#{index + 1}. #{concert.name}"
+  # end
+
+    def self.scrape_concert_page
+      GnakanoCliProject::Concert.all.each.with_index(1) do |concert, i|
+        # if chosen_concert == i.to_s
+          name_url = GnakanoCliProject::Concert.all[i-1]
+          binding.pry
+        # end
+        
       end
+      name_url = GnakanoCliProject::Concert.all[0].name.downcase.gsub(" ", "-")
+      page = Nokogiri::HTML(open("https://arizonachambermusic.org/events/#{GnakanoCliProject::Concert.all[0].name.downcase.gsub(" ", "-")}/"))
+     
+      page.each do |info|
+        @event_time = info.css("h2.event-subtitle").text
+        @program = info.css("ul.list-unstyled.list-pieces").text.gsub("\r\n ", "")
+        
+      end
+      
     end
-      #  binding.pry
+      
       
  
     end

@@ -12,7 +12,8 @@ class GnakanoCliProject::Concert
     @concerts = []
     save
   end
-    
+
+  # binding.pry
   
   def save
      @@all << self
@@ -27,5 +28,6 @@ class GnakanoCliProject::Concert
     concert_hash.each do |k, v|
       self.send("#{k}=", v)
     end
+    # binding.pry
   end
 end

@@ -76,3 +76,15 @@ Bin:
   def self.find_by_concert(name)
     @@all.find {|concert|concert.name == name}
   end
+
+  doc = Nokogiri::HTML(open(url))
+      url = "https://arizonachambermusic.org/events/#{name.url}"
+      scraped_concert = {}
+      artists = Nokogiri::HTML(open(url))
+      artists.each do |artist|
+      scraped_concert[:event_time] = artist.css("h2.event-subtitle").text
+      # scraped_concert[:event_time] = info.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
+      scraped_concert[:program] = artist.css("ul.list-unstyled.list-pieces").text.strip
+      scraped_concert[:ticket_info] = artist.css("div.panel.text-sans").text
+  
+      scraped_concert
