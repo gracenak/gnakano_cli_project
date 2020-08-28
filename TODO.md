@@ -1,21 +1,17 @@
 $concerts
-
-> Welcome! Would you like to see a list of concerts? (y/n)
-> input = gets.strip.downcase
-
-    > y         
-> Awesome! Here are a list of concerts
+        
+> Here are a list of concerts
    - #list_concerts
 
 > Which concert would you like to know more about? (Enter number between 1-13)
 > input = gets.strip.to_i
-    - print_concerts(concert)
+    - print_concerts(chosen_concert)
 
-> Would you like to check out another concert? (y/n)
-> input = gets.strip.downcase
+> Would you like to check out another concert? (Y/N)
+> input = gets.strip.upcase
 
 > y
-> return to #start
+> return to #list_concerts
 
 > n
 > "Thanks for checking us out, goodbye!"
@@ -30,10 +26,13 @@ ConcertInfo # => Model
 
 Cli # => Controller
 - #start
-- main menu
     - initial options
     - gets input
     - delegates to user choice
+- #menu
+    - gives user more options, to check out another concert
+    - exit
+
 
 Requirements:
 
@@ -63,28 +62,12 @@ details: concert.css("p").text
 
 
 Classes:
-> concerts
-> menu
+> concert
+> cli
 > scraper
 
 Environment file:
 > environment.rb
 
 Bin:
-> 
-
-  def self.find_by_concert(name)
-    @@all.find {|concert|concert.name == name}
-  end
-
-  doc = Nokogiri::HTML(open(url))
-      url = "https://arizonachambermusic.org/events/#{name.url}"
-      scraped_concert = {}
-      artists = Nokogiri::HTML(open(url))
-      artists.each do |artist|
-      scraped_concert[:event_time] = artist.css("h2.event-subtitle").text
-      # scraped_concert[:event_time] = info.css("h2.event-subtitle").text.gsub("Saturday, October 17, 2020", "").strip
-      scraped_concert[:program] = artist.css("ul.list-unstyled.list-pieces").text.strip
-      scraped_concert[:ticket_info] = artist.css("div.panel.text-sans").text
-  
-      scraped_concert
+> gnakano_cli_project (executable file)

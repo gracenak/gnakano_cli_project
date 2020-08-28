@@ -1,6 +1,6 @@
 # GnakanoCliProject
 
-Find out a list of concerts happening with Arizona Friends of Chamber Music!
+See a list of concerts happening with Arizona Friends of Chamber Music! The user will be able to retrieve information about a specific concert by selecting the numbered concert. The user will then have the option to retrieve information about another concert by selecting another numbered concert or to exit the program. The user will be able to check out as many concerts to their hearts content. Once the user decides that there are no more concerts they would like to check out, the program will exit with a greeting.
 
 ## Installation
 
