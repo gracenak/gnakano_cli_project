@@ -30,7 +30,7 @@ class GnakanoCliProject::Cli
         chosen_concert = gets.strip.to_i
           
             if valid_input(chosen_concert, @concerts)
-                print_concert(chosen_concert)
+                print_concert(chosen_concert) 
             else
                 puts "Invalid input. Enter a number 1-13"
             end
@@ -39,13 +39,12 @@ class GnakanoCliProject::Cli
     
         
     def valid_input(chosen_concert, data)
-            chosen_concert.to_i <= data.length && chosen_concert.to_i > 0
-        end  
+            chosen_concert <= data.length && chosen_concert > 0
+    end  
        
     
     def print_concert(chosen_concert)
         concert = @concerts[chosen_concert -1]
-        # binding.pry
     
         puts ""
         puts "============#{concert.name}============"
