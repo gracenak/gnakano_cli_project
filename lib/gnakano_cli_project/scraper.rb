@@ -2,8 +2,8 @@ class GnakanoCliProject::Scraper
 
   def self.load
     doc = Nokogiri::HTML(open('https://arizonachambermusic.org/tickets/'))
-    section = doc.css("div#content.site-content")
-    concerts = section.css("article.event.event-list-item")
+    # section = doc.css("div#content.site-content")
+    concerts = doc.css("article.event.event-list-item")
 
     concerts.each do |concert|
     name = concert.css("h1.event-title").text

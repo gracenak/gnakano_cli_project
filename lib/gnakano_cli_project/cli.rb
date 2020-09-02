@@ -34,13 +34,14 @@ class GnakanoCliProject::Cli
     end
     
         
-    def valid_input(input, data)
-            input.to_i <= data.length && input.to_i > 0
+    def valid_input(chosen_concert, data)
+            chosen_concert.to_i <= data.length && chosen_concert.to_i > 0
         end  
        
     
     def print_concert(chosen_concert)
         concert = @concerts[chosen_concert -1]
+        # binding.pry
     
         puts ""
         puts "============#{concert.name}============"
