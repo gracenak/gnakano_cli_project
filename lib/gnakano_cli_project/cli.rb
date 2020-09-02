@@ -29,7 +29,11 @@ class GnakanoCliProject::Cli
         puts "\nWhich concert would you like to know more about? Enter a number 1-13.\n"
         chosen_concert = gets.strip.to_i
           
-        print_concert(chosen_concert) if valid_input(chosen_concert, @concerts)
+            if valid_input(chosen_concert, @concerts)
+                print_concert(chosen_concert)
+            else
+                puts "Invalid input. Enter a number 1-13"
+            end
         end
     end
     
@@ -58,7 +62,7 @@ class GnakanoCliProject::Cli
         puts input = ""
         while input != "N"
             
-        puts "\nWould you like check out another concert? Enter Y or N."
+        puts "\nWould you like to check out another concert? Enter Y or N."
         input = gets.strip.upcase
         until input == "Y" || input == "N"
         puts "Invalid input. Enter Y or N."
