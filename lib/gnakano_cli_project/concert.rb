@@ -1,6 +1,6 @@
 class GnakanoCliProject::Concert
   
-  attr_accessor :name, :date, :info, :url, :event_time, :program, :bio 
+  attr_accessor :name, :date, :info, :url 
   
   @@all = []
   
