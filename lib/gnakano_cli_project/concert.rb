@@ -9,7 +9,6 @@ class GnakanoCliProject::Concert
     @date = date
     @info = info
     @url = url
-    @concerts = []
     save
   end
   
